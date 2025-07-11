@@ -1,4 +1,4 @@
-name: Scheduled Nightly Build
+name: Nightly
 
 on:
   schedule:
@@ -41,14 +41,16 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       ref: ${{ needs.find_latest_commit.outputs.build_ref }}
+      patch: true
 
   trigger_release:
     name: Release
     needs: [find_latest_commit, trigger_build]
     uses: ./.github/workflows/release.yml
     with:
-      is_prerelease: true
+      is_prerelease: false
       release_tag: ${{ needs.find_latest_commit.outputs.release_tag }}
       release_body: ${{ needs.find_latest_commit.outputs.release_body }}
     permissions:
       contents: write
+
