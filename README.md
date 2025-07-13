@@ -9,3 +9,4 @@ It is based on https://github.com/deevus/zed-windows-builds, but adds a bugfix f
 - [deevus](https://github.com/deevus) for creating the Github Actions workflow these builds are forked from. See the [original](https://github.com/deevus/zed-windows-builds).
 - [someone120](https://github.com/someone120) for implementing the fix submitted in [zed-industries/zed#22600](https://github.com/zed-industries/zed/pull/22600).
 - [zed-industries](https://github.com/zed-industries) for open-sourcing Zed, making community fixes possible.
+- [lilnasy](https://github.com/lilnasy/zed-windows-builds) for creating actions to apply the windows lsp patch.
