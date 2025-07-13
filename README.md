@@ -1,12 +1,19 @@
-# Unofficial nightly builds of Zed for Windows
-#### See the releases section for the latest build
+# Nightly Zed Builds
 
-This repository runs a Github Actions workflow daily to build a release version of the Zed Editor for Windows.
+This repository automatically builds the latest commit of the
+[Zed](https://github.com/zed-industries/zed) text editor for Windows.
 
-It is based on https://github.com/deevus/zed-windows-builds, but adds a bugfix for [zed-industries/zed#20559](https://github.com/zed-industries/zed/issues/20559), an issue that prevented most LSPs from being started.
+- [deevus](https://github.com/deevus) made the original repository to build nightly versions.
+- [someone120](https://github.com/someone120) created the patch to fix LSPs starting on windows.
+- [lilnasy](https://github.com/lilnasy) made the original version of this workflow repository.
 
-### Credits
-- [deevus](https://github.com/deevus) for creating the Github Actions workflow these builds are forked from. See the [original](https://github.com/deevus/zed-windows-builds).
-- [someone120](https://github.com/someone120) for implementing the fix submitted in [zed-industries/zed#22600](https://github.com/zed-industries/zed/pull/22600).
-- [zed-industries](https://github.com/zed-industries) for open-sourcing Zed, making community fixes possible.
-- [lilnasy](https://github.com/lilnasy/zed-windows-builds) for creating actions to apply the windows lsp patch.
+There are some key differences in this repository compared to the others that I should note:
+
+- The **OpenGL** build is disabled here due to it failing to compile on nightly releases.
+- The **Vulkan** build is the only one that I support using via my repository builds.
+- The **LSP patch** is automatically applied to each nightly build of the binaries.
+
+If you have any issues with Zed itself, make an issue upstream, not on this.
+
+Lastly, thanks to [Zed](https://github.com/zed-industries/zed) for making everything
+open source.
