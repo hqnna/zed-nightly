@@ -30,7 +30,7 @@ jobs:
       - name: Move and compress release binaries 
         run: |
           mv artifacts/zed-nightly/zed.exe zed.exe
-          zstd --ultra --long -22 zed.exe > zed.exe.zst
+          zip zed-nightly.zip zed.exe
 
       - name: Upload release build artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
