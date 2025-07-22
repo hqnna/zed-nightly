@@ -27,10 +27,8 @@ jobs:
         uses: actions/download-artifact@v4
         with: { path: artifacts }
 
-      - name: Move and compress release binaries 
-        run: |
-          mv artifacts/zed-nightly/zed.exe zed.exe
-          gzip -9 zed.exe > zed-nightly.gz
+      - name: Compress nightly binaries
+        run: gzip -9c artifacts/zed-nightly/zed.exe > zed-nightly.gz
 
       - name: Upload release build artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
