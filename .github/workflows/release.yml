@@ -30,7 +30,7 @@ jobs:
       - name: Move and compress release binaries 
         run: |
           mv artifacts/zed-nightly/zed.exe zed.exe
-          zip zed-nightly.zip zed.exe
+          gzip -9 zed.exe > zed-nightly.gz
 
       - name: Upload release build artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
@@ -39,7 +39,6 @@ jobs:
           tag_name: ${{ inputs.release_tag }}
           prerelease: ${{ inputs.is_prerelease }}
           body: ${{ inputs.release_body }}
-          files: zed.exe.zst
+          files: zed-nightly.gz
           make_latest: true
           draft: false
-
