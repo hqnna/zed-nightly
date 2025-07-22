@@ -27,17 +27,19 @@ jobs:
         uses: actions/download-artifact@v4
         with: { path: artifacts }
 
-      - name: Create release directories and zip
-        run: mv artifacts/zed-nightly/zed.exe zed.exe
+      - name: Move and compress release binaries 
+        run: |
+          mv artifacts/zed-nightly/zed.exe zed.exe
+          zstd --ultra --long -22 zed.exe > zed.exe.zst
 
       - name: Upload release build artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           name: ${{ inputs.release_tag }}
           tag_name: ${{ inputs.release_tag }}
-          body: ${{ inputs.release_body }}
-          draft: false
           prerelease: ${{ inputs.is_prerelease }}
+          body: ${{ inputs.release_body }}
+          files: zed.exe.zst
           make_latest: true
-          files: zed.exe
+          draft: false
 
